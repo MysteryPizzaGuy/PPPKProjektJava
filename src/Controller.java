@@ -4,6 +4,9 @@ import Model.Vozac;
 import Model.Vozilo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
@@ -49,10 +52,22 @@ public class Controller {
     private Button btnImportVozila;
 
 
+    @FXML
+    private Button LoadPDFGenerate;
 
 
     @FXML
     protected void initialize() {
+
+    }
+
+    @FXML
+    protected void onClickLoadPDFGenerate(ActionEvent action) throws IOException {
+        Stage stage = (Stage)LoadPDFGenerate.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("PDFGenerate.fxml"));
+        stage.setTitle("");
+        stage.setScene(new Scene(root, 300, 275));
+        stage.show();
 
     }
 
